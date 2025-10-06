@@ -42,16 +42,23 @@ router.get("/",wrapAsync(async(req,res)=>{
 }));
 
 // Edit listing
-router.put("/:id", upload.single('listings[image]'),wrapAsync(async(req,res)=>{
-   let{id}=req.params;
-   let editedListing=await lists.findByIdAndUpdate(id,req.body.listings);
-   editedListing.image.url=req.file.path;
-   editedListing.image.file=req.file.filename;
-   await editedListing.save();
-   req.flash("edited","listing edited");
-   res.redirect(`/listings/${id}`);
-                                                             
+router.put("/:id", upload.single('listings[image]'), wrapAsync(async(req,res)=>{
+  let{id}=req.params;
+  let editedListing=await lists.findByIdAndUpdate(id,req.body.listings);
+
+  // ✅ Only update image if new file is uploaded
+  if (req.file) {
+    editedListing.image = {
+      url: req.file.path,
+      file: req.file.filename
+    };
+  }
+
+  await editedListing.save();
+  req.flash("edited","listing edited");
+  res.redirect(`/listings/${id}`);
 }));
+
 //Edit request
 router.get("/edit/:id",
     isLoggedin,
@@ -72,35 +79,35 @@ router.get("/new"
     res.render("listings/new.ejs");
 }));
 //New listing
-router.post("/new/create",
-    
-    validateSchema,
-    upload.single('listings[image]'),
-  
-  
-    wrapAsync(async(req,res,next)=>{
-    let response= await geocodingClient.forwardGeocode({// for map use
-    query: req.body.listings.location,// for map use
-    limit: 1// for map use
-                                          })
-    .send();// for map use
-  
-    const newListing=new lists(req.body.listings);
-    newListing.owner=req.user._id;
-    // newListing.image.url=req.file.path;
-    // newListing.image.file=req.file.filename;
-    newListing.image={
-        url:req.file.path,
-        filename:req.file.filename,
+router.post(
+  "/new/create",
+  validateSchema,
+  upload.single('listings[image]'),
+  wrapAsync(async (req, res, next) => {
+    const response = await geocodingClient.forwardGeocode({
+      query: req.body.listings.location,
+      limit: 1,
+    }).send();
+
+    const newListing = new lists(req.body.listings);
+    newListing.owner = req.user._id;
+
+    // ✅ Prevent crash if req.file is missing
+    if (req.file) {
+      newListing.image = {
+        url: req.file.path,
+        filename: req.file.filename,
+      };
     }
-    newListing.geometry=response.body.features[0].geometry// Adding map coordinate
-    let data=await newListing.save();
-   
-    req.flash("listing","listing added ")
+
+    newListing.geometry = response.body.features[0].geometry;
+    await newListing.save();
+
+    req.flash("listing", "Listing added");
     res.redirect("/listings");
-     
-//      console.log(req.file.path);
-}));
+  })
+);
+
 //show listing details
 router.get("/:id",wrapAsync(async(req,res)=>{
     let{id}=req.params;
