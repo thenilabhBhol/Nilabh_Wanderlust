@@ -1,0 +1,81 @@
+<% layout("/layouts/boilerplate")%>
+<style>
+      body{
+        top:8rem;
+          }
+@media(max-width:410px){
+body{
+   padding-top: 19rem;
+}
+.divForm{
+     margin-left: 1rem;
+     margin-right: 7rem;
+     padding-top: 3rem;
+     margin-top: 2rem;
+}
+}
+</style>
+<body>
+    <div class="row divForm ">
+        <div class="col-8 offset-2">
+         <h1>Create new listing</h1>
+ <form method="POST" action="/listings/new/create" class="needs-validation" novalidate enctype="multipart/form-data" >
+    
+  <div class="mb-3">
+    
+       <label for="title" class="form-label">Title</label>
+       <input type="text" class="form-control" name="listings[title]" placeholder="Add a catchy title"  required>
+       <div class="valid-feedback">title looks good</div>
+       <div class="invalid-feedback">title required</div>
+   
+  </div>
+  <div class="mb-3">
+       <label for="description" class="form-label">Description</label>
+       <textarea name="listings[description]" class="form-control" required></textarea>
+        <div class="invalid-feedback">description required</div>
+  </div>
+  <div class="mb-3">
+     
+       <label class="form-label" for="image">Image</label>
+       <input type="file" class="form-control" name="listings[image]" placeholder=" Enter image URL/LINK " >
+  </div>
+  <div class="mb-3">
+      <label class="form-label" for="price" >Price</label>
+      <input  class="form-control" name="listings[price]" placeholder="1200" required>
+      <div class="invalid-feedback">price required</div>
+  </div>
+  <div class="row">
+       
+      <div class="mb-4 col-7">
+           <label for="" class="form-label">Country</label>
+           <input type="text" class="form-control" name="listings[country]" placeholder="India"  >
+            <div class="invalid-feedback">country required</div>
+      </div>
+      <div class="mb-3 col-5">
+            <label for="location" class="form-label" >location</label>
+            <input type="text" class="form-control" name="listings[location]" placeholder="Ghtasila,Manusmuria" required>
+            <div class="invalid-feedback">location required</div>
+       </div>
+       <div class="mb-3">
+          <label>Category</label>
+           <select name="listings[category]" class="form-control">
+                  <option value="Mountain">Mountain</option>
+                  <option value="Pool">Pool</option>
+                  <option value="Beach hotel">Beach hotel</option>
+                  <option value="Iconic cities">iconic cities</option>
+                  <option value="Farms">farms</option>
+                  <option value="Camp">Camp</option>
+                 
+           </select>
+       </div>
+
+  </div>
+  <div class="mb-3">
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+     </div>
+</div> 
+
+</body>
+

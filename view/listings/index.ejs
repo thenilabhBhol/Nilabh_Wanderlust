@@ -1,0 +1,107 @@
+<% layout("/layouts/boilerplate")%>
+<style>
+  #filter{
+    display:flex;
+    
+    margin-top: 2rem;
+    position: fixed;
+    top:5rem;
+   
+    padding-top: 1rem 0;
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    
+    
+  }
+  .filters{
+    text-align: center;
+    margin-right: 4rem; 
+    margin-top: 1rem;
+   
+  }
+  a{
+    text-decoration: none;
+    color:black;
+  }
+  @media(max-width:410px){
+    #filter{
+    display:flex;
+    
+    margin-top: 1rem;
+    position: fixed;
+    top:17rem;
+   
+    padding-top: 1rem 0;
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    
+           }
+    body{
+      padding-top: 19rem;
+    }
+    .filters{
+      flex-wrap: wrap;
+      text-align: center;
+      margin-right:0.9rem; 
+      margin-top: 1rem;
+    }
+  }
+</style>
+<body>
+   
+   <a href="#"><div id="filter" >
+     <a href="/listings/search/Beach hotel"><div class="filters">
+           <div><i class="fa-solid fa-umbrella-beach"></i></i></div>
+           <p>Beach</p>
+         </div></a> 
+   </a> 
+     <a href="/listings/search/Mountain"><div class="filters">
+           <div><i class="fa-solid fa-mountain-sun"></i></div>
+           <p>Mountains</p>
+      </div></a> 
+     <a href="/listings/search/Pool"><div class="filters">
+           <div><i class="fa-solid fa-person-swimming"></i></div>
+           <p>pool</p>
+      </div></a> 
+    <a href="/listings/search/Iconic cities"><div class="filters">
+           <div><i class="fa-solid fa-building"></i></div>
+           <p>City</p>
+      </div></a> 
+
+    <a href="/listings/search/Camp"><div class="filters">
+           <div><i class="fa-solid fa-campground"></i></div>
+           <p>Camp</p>
+      </div></a> 
+      
+      <a href="/listings/search/Farms"><div class="filters">
+           <div><i class="fa-solid fa-cow"></i></div>
+           <p>Farms</p>
+      </div></a> 
+       
+    
+    </div>
+    <!-- <form method="get" action="/listing/new">
+      <button type="submit">Create New</button>
+    </form> -->
+    <div class="row row-cols-lg-3  row-cols-md-3 row-cols-sm-1 mt-3">
+   <%for(list of data){%>
+     <div class="listing-card ">
+        <a href="/listings/<%=list._id%>" class="listing-link">
+        <img src="<%=list.image.url%>" class="card-image-top" style="height:20rem">
+     
+        
+           <div class="card-body ">
+               <p  class="para"> <b><%=list.title%></b> </br>
+                &#8377; <%=list.price.toLocaleString("en-IN")%>/night
+               </p>
+           </div></a>
+          
+   
+   </div>
+      
+    <% }%>
+  </div>
+
+</body>

@@ -1,0 +1,42 @@
+<% layout("/layouts/boilerplate")%>
+<style>
+    body{
+        top:8rem;
+    }
+     @media(max-width:410px){
+    body{
+        padding-top: 19rem;
+    }
+                            }
+</style>
+<body>
+    <h3 class="offset-3">login to your account</h3>
+    <div class="row" mt-3>
+        <div class="col-6 offset-3">
+            <form action="/login" method="POST" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-level">Username</label>
+                    <input 
+                      type="text"
+                      id="email"
+                      name="username"
+                      class="form-control"
+                      required>
+                    
+                </div>
+               
+                <div class="mb-3">
+                    <label for="password" class="form-level">password</label>
+                    <input 
+                      type="password"
+                      name="password"
+                      class="form-control"
+                      required>
+                    
+                </div>
+                <button class="btn btn-success">login</button>
+            </form>
+        </div>
+
+    </div>
+</body>

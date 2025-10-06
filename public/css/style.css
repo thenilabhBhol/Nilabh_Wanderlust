@@ -1,0 +1,83 @@
+.navbar{
+    background-color: white;
+    height: 4rem;
+    position: fixed;
+    width: 100%;
+    top :0
+}
+
+.fa-compass{
+    color:#fe424d;
+    font-size:2rem;
+}
+.nav-link{
+    color:#222222;
+}
+html,body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex:1
+}
+.f-info{
+    
+   
+    width: 100%;
+    height:5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+}
+.f-info-links a{
+    text-decoration: none;
+}
+.f-info-links :hover{
+    text-decoration: underline;
+}
+.f-info-socials i{
+    margin-right: 0.5rem;
+}
+.listing-card{
+    margin-top: 2rem;
+    border:none;
+}
+.card-image-top{
+    border-radius:1rem;
+    width:100%;
+    object-fit: cover;
+}
+.card-img-overlay{
+    opacity:0;
+}
+.card-img-overlay:hover{
+    opacity:0.2;
+    background-color: white;
+}
+.listing-link{
+    text-decoration: none;
+    
+}
+.card-body {
+    color:black
+}
+.showCard{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.showbtn{
+    display: flex;
+    justify-content: center;
+}
+#map { 
+    height: 400px;
+    width: 90vw;
+   }
+body{
+    padding-top: 8rem;
+}

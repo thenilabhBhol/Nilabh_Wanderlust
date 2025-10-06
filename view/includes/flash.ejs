@@ -1,0 +1,81 @@
+<style>
+   .alert{
+      
+      top:2rem;
+      height: 4rem;
+      margin-bottom: 1rem;
+      word-wrap:break-word;
+      
+   }
+   .login{
+       top:0.5rem;
+      height: 4rem;
+      margin-bottom: 1rem;
+   }
+  @media(max-width:410px){
+     .alert{
+     top:3rem;
+     }
+     .login{
+      top:0.5rem;
+      height:4rem;
+     }
+  }
+</style>
+<body>
+<%if(success.length){%>
+    <div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" >
+       <p><%=success%></p>
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+<%}%>
+<%if(loginError.length){%>
+    <div class="alert alert-success col-6 offset-3 alert-dismissible fade show login" role="alert" >
+     <p><%=loginError%></p>
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+<%}%>
+ <%if(logout.length){%>
+    <div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" >
+     <p><%=logout%></p>
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+    <%}%>
+<%if(signup.length){%>
+   <div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" >
+     <p><%=signup%></p>
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+<%}%>
+
+<%if(successMsg.length){%>
+<div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" >
+   <p><%=successMsg%></p>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%}%>
+<%if(deleteInfo.length){%>
+    <div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" >
+       <p><%=deleteInfo%></p>
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
+<%if(editInfo.length){%>
+     <div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" >
+       <p><%=editInfo%></p>
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
+<%if(reviewInfo.length){%>
+    <div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" >
+       <p><%=reviewInfo%></p>
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
+<%if(listExitOrNot.length){%>
+     <div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" >
+       <p><%=listExitOrNot%></p>
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
+</body>

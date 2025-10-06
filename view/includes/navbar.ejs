@@ -1,0 +1,110 @@
+ <style>
+  button{
+    background-color: #fe424d; 
+    color: white;
+    border-radius: 25 px;
+  }
+  .fa-magnifying-glass{
+    display: inline;
+    margin-right: 1rem;
+  }
+  .navbar{
+    background-color: white;
+    height: 5rem;
+    position: fixed;
+    width: 100%;
+    top :0;
+    display:flex;
+}
+@media(max-width:410px){
+    .navbar{
+     background-color: white;
+    height: 17rem;
+    position: fixed;
+    width: 100%;
+    top :0
+       }
+    .navbar-toggler{
+      margin-right: 1.5rem;
+    }
+    .fa-magnifying-glass{
+    display: inline;
+    margin-right:0.5rem;
+                      }
+    .form-control{
+      width: 15rem;
+    }
+}
+.brand{
+  margin-top: 2rem;
+}
+
+</style>
+ <nav class="navbar navbar-expand-md navbar-expand-sm bg-body-light border-bottom sticky-top">
+  
+  <div class="container-fluid">
+    <div class="brand" >
+     <a class="navbar-brand" href="#"><h4 style="color: #fe424d;">WANDERLUST</h4></a>
+     </div>
+       <div class="brand" style="margin-left: 1rem;">
+           <a class="navbar-brand" href="/listings" ><h6 style="color: blue; top:2px"><b>EXPLORE</b></h4></a>
+        </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <!-- <div class="navbar-nav">
+           <a class="nav-link" href="/listings">EXPLORE</a>
+        </div> -->
+        <div class="navbar-nav ms-auto">
+                  
+                  <form class="d-flex" role="search" action="/listings/search" method="GET" enctype="application/x-www-form-urlencoded" >
+                      <input class="form-control me-2" type="search" name="location" value="eg-Ghatshila" aria-label="Search"/>
+                       <button class="btn btn-outline-danger" type="submit" style="background-color: #fe424d; color: white;"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+                  </form>
+                 
+           
+        </div>
+          <div class="navbar-nav ms-auto">
+             <a class="nav-link" href="/listings/new" style="color: black; margin-right: 2rem;">ADD POST</a>
+            <%if(!currentUser){%>
+            <a class="nav-link" aria-current="page" href="/signup" style="color: blue;"><b>Sign up</b></a>
+            <a class="nav-link" href="/login" style="color: blue;"> <b>Log in</b></a>
+            <%}%>
+            <%if(currentUser){%>
+            <a class="nav-link" href="/logout">Log out</a>
+            <%}%>
+          </div>
+    </div>
+  </div>
+</nav> 
+
+  <!-- <div class="navcopy">
+    <a class="" href="#"><i class="fa-regular fa-compass"></i></a>
+   
+   
+        <div class="">
+           <a class="" href="/listings">EXPLORE</a>
+        </div>
+        <div class="">
+                  <div class="container-fluid">
+                  <form class="" role="search" action="/listings/search" method="GET" enctype="application/x-www-form-urlencoded" >
+                      <input class="" type="search" name="location" value="Ex-Goa India" aria-label="Search"/>
+                       <button class="" type="submit" style="background-color: #fe424d; color: white;"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+                  </form>
+                 </div>
+           
+        </div>
+          <div class="">
+             <a class="" href="/listings/new" style="color: black; margin-right: 2rem;">ADD POST</a>
+            <%if(!currentUser){%>
+            <a class="" aria-current="page" href="/signup" style="color: blue;"><b>Sign up</b></a>
+            <a class="" href="/login" style="color: blue;"> <b>Log in</b></a>
+            <%}%>
+            <%if(currentUser){%>
+            <a class="" href="/logout">Log out</a>
+            <%}%>
+          </div>
+    
+  </div> -->
+
