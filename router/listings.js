@@ -130,6 +130,7 @@ router.get("/:id",wrapAsync(async(req,res)=>{
 }));
 //Delete Listing
 router.delete("/delete/:id",
+    isLoggedin,
     isOwner,
     wrapAsync(async(req,res)=>{
     let {id}=req.params;
